@@ -4,21 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/loginButton"
-        android:text="LOGIN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+    tools:context=".LandlordActivity">
 
     <ListView
-        android:id="@+id/houseListView"
+        android:id="@+id/LandlordListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-
-
 
 </LinearLayout>
