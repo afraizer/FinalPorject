@@ -78,6 +78,13 @@ public class ListingOpenHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void deleteListing(int id){
+        String sqlDelete = "DELETE FROM " + TABLE_LISTINGS + " WHERE " + ID + "=" + id;
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+
     public Cursor getSelectAllListingsCursor(){
         String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS;
         SQLiteDatabase db = getReadableDatabase();
