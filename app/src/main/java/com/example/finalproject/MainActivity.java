@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ListingOpenHelper listingOpenHelper = new ListingOpenHelper(this);
+        listingOpenHelper.insertListing(new Listing("address", "rent", 1, "1", "phone", "email", "length"));
+
     }
 
     @Override
