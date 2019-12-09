@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListingOpenHelper listingOpenHelper = new ListingOpenHelper(this);
+        final ListingOpenHelper listingOpenHelper = new ListingOpenHelper(this);
         listingOpenHelper.insertListing(new Listing("address", "rent", 1, "1", "phone", "email", "length"));
 
 
@@ -46,7 +46,16 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(MainActivity.this, HousePage.class);
+                Listing listing = listingOpenHelper.getListing(id);
+                intent.putExtra("address", listing.getAddress());
+                intent.putExtra("rent", listing.getRent());
+                intent.putExtra("bedrooms", listing.getBedrooms());
+                intent.putExtra("bathrooms", listing.getBathrooms());
+                intent.putExtra("phoneNumber", listing.getLandlordPhone());
+                intent.putExtra("email", listing.getLandlordEmail());
+                intent.putExtra("leaseLength", listing.getLengthOfLease());
+                startActivity(intent);
             }
         });
 

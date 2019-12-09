@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".HousePage">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+
     <TextView
         android:id="@+id/rent"
         android:layout_width="wrap_content"
@@ -22,32 +24,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+
     <TextView
         android:id="@+id/bathrooms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-    <TextView
-        android:id="@+id/phoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+
     <TextView
         android:id="@+id/leaseLength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+
+    <TextView
+        android:id="@+id/contactInfoSpecificationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Information for Landlord:"
+        />
+
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
     <Button
         android:id="@+id/locationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find Location From Campus"
         />
-
 
 </LinearLayout>

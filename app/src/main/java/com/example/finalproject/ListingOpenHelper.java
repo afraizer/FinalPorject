@@ -92,4 +92,25 @@ public class ListingOpenHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Listing getListing(long id){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + ID + "=" + id;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        cursor.moveToNext();
+
+        String address = cursor.getString(1);
+        String rent = cursor.getString(2);
+        int bedrooms = cursor.getInt(3);
+        String bathrooms = cursor.getString(4);
+        String phoneNumber = cursor.getString(5);
+        String email = cursor.getString(6);
+        String leaseLength = cursor.getString(7);
+
+        Listing listing = new Listing(address, rent, bedrooms, bathrooms, phoneNumber, email, leaseLength);
+
+        db.close();
+        cursor.close();
+        return listing;
+    }
+
 }
