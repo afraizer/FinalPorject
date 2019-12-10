@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class HousePage extends AppCompatActivity {
+
+    private String listingAddress = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +19,15 @@ public class HousePage extends AppCompatActivity {
 
         Intent intent = getIntent();
         if(intent != null){
-            TextView address = (TextView) findViewById(R.id.address);
-            TextView rent = (TextView) findViewById(R.id.rent);
-            TextView bedrooms = (TextView) findViewById(R.id.bedrooms);
-            TextView bathrooms = (TextView) findViewById(R.id.bathrooms);
-            TextView phoneNumber = (TextView) findViewById(R.id.phoneNumber);
-            TextView email = (TextView) findViewById(R.id.email);
-            TextView leaseLength = (TextView) findViewById(R.id.leaseLength);
-            address.setText(intent.getStringExtra("address"));
+            TextView address = findViewById(R.id.address);
+            TextView rent = findViewById(R.id.rent);
+            TextView bedrooms = findViewById(R.id.bedrooms);
+            TextView bathrooms = findViewById(R.id.bathrooms);
+            TextView phoneNumber = findViewById(R.id.phoneNumber);
+            TextView email = findViewById(R.id.email);
+            TextView leaseLength = findViewById(R.id.leaseLength);
+            listingAddress = intent.getStringExtra("address");
+            address.setText(listingAddress);
             rent.setText("$" + intent.getStringExtra("rent"));
             bedrooms.setText(intent.getIntExtra("bedrooms", 1) + " bedrooms");
             bathrooms.setText(intent.getStringExtra("bathrooms") + " bathrooms");
@@ -31,7 +36,15 @@ public class HousePage extends AppCompatActivity {
             leaseLength.setText(intent.getStringExtra("leaseLength"));
         }
 
-
+        Button locationButton = (Button) findViewById(R.id.locationButton);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent locationIntent = new Intent(HousePage.this, MapsActivity.class);
+                locationIntent.putExtra("address", listingAddress);
+                startActivity(locationIntent);
+            }
+        });
 
     }
 }
