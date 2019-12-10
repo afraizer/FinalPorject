@@ -29,7 +29,8 @@ public class LandlordActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.addHouse:
-                // intent for adding a new house
+                Intent intent = new Intent(LandlordActivity.this, AddListingActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.manageHouses:
                 // intent for managing their houses
