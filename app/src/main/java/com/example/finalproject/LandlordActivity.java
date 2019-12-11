@@ -1,8 +1,10 @@
 package com.example.finalproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +20,7 @@ public class LandlordActivity extends AppCompatActivity {
     SimpleCursorAdapter cursorAdapter;
     ListingOpenHelper listingOpenHelper;
     String email;
+    static final int REQUEST_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +44,9 @@ public class LandlordActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(LandlordActivity.this, HousePage.class);
+                Intent intent = new Intent(LandlordActivity.this, EditHouseActivity.class);
                 Listing listing = listingOpenHelper.getListing(id);
+                intent.putExtra("id", id);
                 intent.putExtra("address", listing.getAddress());
                 intent.putExtra("rent", listing.getRent());
                 intent.putExtra("bedrooms", listing.getBedrooms());
@@ -50,7 +54,7 @@ public class LandlordActivity extends AppCompatActivity {
                 intent.putExtra("phoneNumber", listing.getLandlordPhone());
                 intent.putExtra("email", listing.getLandlordEmail());
                 intent.putExtra("leaseLength", listing.getLengthOfLease());
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE);
             }
         });
         listView.setAdapter(cursorAdapter);
@@ -72,9 +76,6 @@ public class LandlordActivity extends AppCompatActivity {
                 Intent intent = new Intent(LandlordActivity.this, AddListingActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.manageHouses:
-                // intent for managing their houses
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -85,5 +86,21 @@ public class LandlordActivity extends AppCompatActivity {
         super.onResume();
         cursorAdapter.getCursor().close(); // closes the cursor
         cursorAdapter.changeCursor(listingOpenHelper.getLandlordListings(email)); // gets cursor to update database
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK){
+            String address = data.getStringExtra("address");
+            String rent = data.getStringExtra("rent");
+            String bedroom = data.getStringExtra("bedrooms");
+            String bathrooms = data.getStringExtra("bathrooms");
+            String lease = data.getStringExtra("lease");
+            String phone = data.getStringExtra("phone");
+            String email = data.getStringExtra("email");
+            int id = (int)data.getLongExtra("id",0);
+            listingOpenHelper.updateListing(id, new Listing(address, rent, Integer.parseInt(bedroom),bathrooms, phone,email,lease));
+        }
     }
 }

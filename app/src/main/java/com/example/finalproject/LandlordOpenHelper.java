@@ -51,7 +51,7 @@ public class LandlordOpenHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteAllListings(){
+    public void deleteAllLandlords(){ //used for testing purposes
         String sqlDelete = "DELETE FROM " + TABLE_LANDLORDS;
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(sqlDelete);

@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         isUsername = false;
         isPassword = false;
         landlordOpenHelper = new LandlordOpenHelper(LoginActivity.this);
-        landlordOpenHelper.insertLandlord(new Landlord("email", "password"));
         email = findViewById(R.id.username);
         password = findViewById(R.id.password);
         password.addTextChangedListener(new TextWatcher() {
