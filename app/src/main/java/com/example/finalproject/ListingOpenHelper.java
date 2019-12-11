@@ -120,5 +120,57 @@ public class ListingOpenHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getSearchListingBedrooms(String bedroomsNum){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + BEDROOMS + "= '" + bedroomsNum + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
+
+    public Cursor getSearchListingBathrooms(String bathroomNum){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + BATHROOMS + "= '" + bathroomNum + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
+
+    public Cursor getSearchListingLease(String leaseNum){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + LEASELENGTH + "= '" + leaseNum + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
+
+    public Cursor getSearchListingBedroomsAndBathrooms(String bedroomsNum, String bathroomNum){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + BEDROOMS + "= '" + bedroomsNum + "'"
+                + " AND " + BATHROOMS + "='" + bathroomNum + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
+
+    public Cursor getSearchListingBedroomsAndLease(String bedroomsNum, String leaseNum){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + BEDROOMS + "= '" + bedroomsNum + "'"
+                + " AND " + LEASELENGTH + "='" + leaseNum + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
+
+    public Cursor getSearchListingBathroomsAndLease(String bathroomsNum, String leaseNum){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + BATHROOMS + "= '" + bathroomsNum + "'"
+                + " AND " + LEASELENGTH + "='" + leaseNum + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
+
+    public Cursor getSearchListingBedroomsAndBathroomsAndLease(String bedroomsNum, String bathroomNum, String leaseNum){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + BEDROOMS + "= '" + bedroomsNum + "'"
+                + " AND " + BATHROOMS + "='" + bathroomNum + "'" + " AND " + LEASELENGTH + "='" + leaseNum + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
 
 }
