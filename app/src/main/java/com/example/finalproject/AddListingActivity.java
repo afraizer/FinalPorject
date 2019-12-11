@@ -32,6 +32,8 @@ public class AddListingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_listing);
+        final ListingOpenHelper listingOpenHelper = new ListingOpenHelper(this);
+
 
         addressText = findViewById(R.id.addressEditText);
         rentText = findViewById(R.id.rentEditText);
@@ -47,7 +49,8 @@ public class AddListingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 assignValues();
                 if(checkFilled()){
-                    // TODO: ADD INFORMATION TO THE DATABASE
+                    listingOpenHelper.insertListing(new Listing(addressStr, rentStr, Integer.parseInt(bedroomStr), bathroomStr, phoneStr, emailStr, leaseStr));
+                    finish();
                 }
                 else{
                     Toast.makeText(AddListingActivity.this, "Please Enter Values for ALL Inputs", Toast.LENGTH_SHORT).show();

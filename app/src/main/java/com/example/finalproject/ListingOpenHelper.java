@@ -113,4 +113,12 @@ public class ListingOpenHelper extends SQLiteOpenHelper {
         return listing;
     }
 
+    public Cursor getLandlordListings(String landlord){
+        String sqlSelect = "SELECT * FROM " + TABLE_LISTINGS + " WHERE " + EMAIL + "= '" + landlord + "'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlSelect, null);
+        return cursor;
+    }
+
+
 }

@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ListingOpenHelper listingOpenHelper = new ListingOpenHelper(this);
         //listingOpenHelper.insertListing(new Listing("address", "rent", 1, "1", "phone", "email", "length"));
+        listingOpenHelper.insertListing(new Listing("502 E Boone Ave, Spokane, WA 99258", "$200000", 1, "1" , "509-509-509", "idk@lol.net", "2 years"));
         //listingOpenHelper.deleteAllListings();
 
         ListView listView = findViewById(R.id.houseListView);
@@ -70,8 +72,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
-        return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        switch(id){
+            case R.id.loginMenuItem:
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                return super.onOptionsItemSelected(item);
+            case R.id.filterIcon:
+                Intent intent1 = new Intent(MainActivity.this, );
+        }
+
+
     }
 }

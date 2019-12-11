@@ -1,7 +1,9 @@
 package com.example.finalproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -27,15 +29,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
         Intent intent = getIntent();
         if(intent != null){
             address = intent.getStringExtra("address");
         }
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         addAddressMarker();
 
@@ -63,13 +64,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void addAddressMarker(){
         LatLng addressLatLng = getLatLngUsingGeocoding(address);
-        MarkerOptions addressMarkerOptions = new MarkerOptions();
-        addressMarkerOptions.title(address);
-        addressMarkerOptions.position(addressLatLng);
-        mMap.addMarker(addressMarkerOptions);
-
-        CameraUpdate addressCameraUpdate = CameraUpdateFactory.newLatLngZoom(addressLatLng, 15.0f);
-        mMap.moveCamera(addressCameraUpdate);
+        if(addressLatLng != null) {
+            MarkerOptions addressMarkerOptions = new MarkerOptions();
+            addressMarkerOptions.title(address);
+            addressMarkerOptions.position(addressLatLng);
+            mMap.addMarker(addressMarkerOptions);
+            CameraUpdate addressCameraUpdate = CameraUpdateFactory.newLatLngZoom(addressLatLng, 15.0f);
+            mMap.moveCamera(addressCameraUpdate);
+        }
 
     }
 
@@ -85,6 +87,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }catch (IOException e){
             e.printStackTrace();
+            androidx.appcompat.app.AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MapsActivity.this);
+            alertBuilder.setTitle("Address")
+                    .setMessage("The address isn't locating")
+                    .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+            alertBuilder.show();
         }
 
         return latLng;

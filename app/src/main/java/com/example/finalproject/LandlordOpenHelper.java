@@ -65,4 +65,5 @@ public class LandlordOpenHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+
 }
