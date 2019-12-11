@@ -111,6 +111,9 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
             }
         }
+        else{
+            Toast.makeText(this, "Email not in database", Toast.LENGTH_SHORT).show();
+        }
         return false;
     }
 

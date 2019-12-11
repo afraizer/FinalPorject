@@ -38,7 +38,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        addAddressMarker();
+
 
     }
 
@@ -60,6 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        addAddressMarker();
     }
 
     private void addAddressMarker(){
@@ -72,7 +73,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             CameraUpdate addressCameraUpdate = CameraUpdateFactory.newLatLngZoom(addressLatLng, 15.0f);
             mMap.moveCamera(addressCameraUpdate);
         }
-
     }
 
 
