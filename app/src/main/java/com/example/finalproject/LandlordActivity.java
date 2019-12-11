@@ -44,9 +44,18 @@ public class LandlordActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(LandlordActivity.this, EditHouseActivity.class);
+//                Listing listing = listingOpenHelper.getListing(id);
+//                intent.putExtra("id", id);
+//                intent.putExtra("address", listing.getAddress());
+//                intent.putExtra("rent", listing.getRent());
+//                intent.putExtra("bedrooms", listing.getBedrooms());
+//                intent.putExtra("bathrooms", listing.getBathrooms());
+//                intent.putExtra("phoneNumber", listing.getLandlordPhone());
+//                intent.putExtra("email", listing.getLandlordEmail());
+//                intent.putExtra("leaseLength", listing.getLengthOfLease());
+//                startActivityForResult(intent, REQUEST_CODE);
+                Intent intent = new Intent(LandlordActivity.this, HousePage.class);
                 Listing listing = listingOpenHelper.getListing(id);
-                intent.putExtra("id", id);
                 intent.putExtra("address", listing.getAddress());
                 intent.putExtra("rent", listing.getRent());
                 intent.putExtra("bedrooms", listing.getBedrooms());
@@ -54,7 +63,7 @@ public class LandlordActivity extends AppCompatActivity {
                 intent.putExtra("phoneNumber", listing.getLandlordPhone());
                 intent.putExtra("email", listing.getLandlordEmail());
                 intent.putExtra("leaseLength", listing.getLengthOfLease());
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivity(intent);
             }
         });
         listView.setAdapter(cursorAdapter);

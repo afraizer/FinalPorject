@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listingOpenHelper = new ListingOpenHelper(this);
-        //listingOpenHelper.insertListing(new Listing("address", "rent", 1, "1", "phone", "email", "length"));
-        //listingOpenHelper.insertListing(new Listing("502 E Boone Ave, Spokane, WA", "$200000", 1, "1" , "509-509-509", "idk@lol.net", "2 years"));
 
         ListView listView = findViewById(R.id.houseListView);
 
