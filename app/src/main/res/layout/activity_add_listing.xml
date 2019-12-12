@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
-        android:textSize="20dp"
-        android:text="Address: "
+        android:textSize="20sp"
+        android:text="@string/addressOption"
         />
 
     <EditText
@@ -21,18 +21,18 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
         android:layout_gravity="fill_horizontal"
-        android:hint="Address" />
+        android:hint="@string/address" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
-        android:textSize="20dp"
-        android:text="Rent: "
+        android:textSize="20sp"
+        android:text="@string/rentOption"
         />
 
     <EditText
-        android:hint="Rent"
+        android:hint="@string/rent"
         android:id="@+id/rentEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,12 +45,12 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
         android:layout_gravity="fill_horizontal"
-        android:textSize="20dp"
-        android:text="Bedrooms: "
+        android:textSize="20sp"
+        android:text="@string/bedroomsOption"
         />
 
     <EditText
-        android:hint="Bedrooms"
+        android:hint="@string/bedrooms"
         android:id="@+id/bedroomsEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,12 +64,12 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
         android:layout_gravity="fill_horizontal"
-        android:textSize="20dp"
-        android:text="Bathrooms: "
+        android:textSize="20sp"
+        android:text="@string/bathroomOption"
         />
 
     <EditText
-        android:hint="Bathrooms"
+        android:hint="@string/bathrooms"
         android:id="@+id/bathroomsEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,12 +83,12 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
         android:layout_gravity="fill_horizontal"
-        android:textSize="20dp"
-        android:text="Length of the Lease: "
+        android:textSize="20sp"
+        android:text="@string/leaseOption"
         />
 
     <EditText
-        android:hint="Length of the Lease"
+        android:hint="@string/lease"
         android:id="@+id/leaseLengthEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,12 +101,12 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
         android:layout_gravity="fill_horizontal"
-        android:textSize="20dp"
-        android:text="Phone Number: "
+        android:textSize="20sp"
+        android:text="@string/phoneOption"
         />
 
     <EditText
-        android:hint="Your Phone Number"
+        android:hint="@string/yourPhone"
         android:id="@+id/phoneNumberEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,11 +119,11 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="1"
         android:layout_gravity="fill_horizontal"
-        android:textSize="20dp"
-        android:text="Email: "
+        android:textSize="20sp"
+        android:text="@string/emailOption"
         />
     <EditText
-        android:hint="Your Email"
+        android:hint="@string/emailOption"
         android:id="@+id/emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,8 +137,8 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
         android:layout_gravity="fill_horizontal"
-        android:textSize="24dp"
-        android:text="Add Listing"
+        android:textSize="24sp"
+        android:text="@string/addListing"
         />
 
 

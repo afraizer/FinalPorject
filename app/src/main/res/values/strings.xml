@@ -10,4 +10,26 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_maps">Map</string>
+    <string name="addressOption">Address: </string>
+    <string name="address">Address</string>
+    <string name="rentOption">Rent: </string>
+    <string name="rent">Rent</string>
+    <string name="bedroomsOption">Bedrooms: </string>
+    <string name="bedrooms">Bedrooms</string>
+    <string name="bathroomOption">Bedrooms: </string>
+    <string name="bathrooms">Bathrooms</string>
+    <string name="leaseOption">Length of the Lease: </string>
+    <string name="lease">Length of the Lease</string>
+    <string name="phoneOption">Phone Number: </string>
+    <string name="yourPhone">Your Phone Number</string>
+    <string name="emailOption">Email: </string>
+    <string name="yourEmail">Your Email</string>
+    <string name="addListing">Add Listing</string>
+    <string name="bedroomsWanted">Number of Bedrooms Wanted</string>
+    <string name="bathroomsWanted">Number of Bathrooms Wanted</string>
+    <string name="leaseLength">Length of Lease in Years</string>
+    <string name="done">Done</string>
+    <string name="contactInformation">Contact Information for Landlord: </string>
+    <string name="findLocation">Find Location From Campus</string>
+    <string name="signUp">Sign Up</string>
 </resources>

@@ -11,6 +11,7 @@
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="23sp"
         />
 
     <TextView
@@ -41,7 +42,7 @@
         android:id="@+id/contactInfoSpecificationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact Information for Landlord:"
+        android:text="@string/contactInformation"
         />
 
     <TextView
@@ -60,7 +61,7 @@
         android:id="@+id/locationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find Location From Campus"
+        android:text="@string/findLocation"
         />
 
 </LinearLayout>

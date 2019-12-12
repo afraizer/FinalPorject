@@ -70,7 +70,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="64dp"
         android:enabled="false"
-        android:text="Sign Up"
+        android:text="@string/signUp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/login"
         app:layout_constraintStart_toStartOf="parent"

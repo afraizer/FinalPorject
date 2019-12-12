@@ -1,3 +1,14 @@
+/*
+ * This program is a app for a housing database for students to check listings
+ * and landlords to list listing for their houses
+ *
+ * **Note API key was taken out for maps as to not expose it on github**
+ * **as we accidentally pushed it once and got an email saying it was **
+ * **exposed when it should not be**
+ *
+ * Authors: John Hyde and Amy Fraizer
+ * Date: 12/11/19
+ */
 package com.example.finalproject;
 
 import androidx.annotation.NonNull;
@@ -25,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivityTag";
     final int REQUEST_CODE = 0;
 
+    // for the listings database
     ListingOpenHelper listingOpenHelper;
+    // global variable to get new cursor for adapter
     SimpleCursorAdapter cursorAdapter;
 
 

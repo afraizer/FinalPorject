@@ -28,12 +28,12 @@ public class HousePage extends AppCompatActivity {
             TextView leaseLength = findViewById(R.id.leaseLength);
             listingAddress = intent.getStringExtra("address");
             address.setText(listingAddress);
-            rent.setText("$" + intent.getStringExtra("rent"));
+            rent.setText("Cost: $" + intent.getStringExtra("rent"));
             bedrooms.setText(intent.getIntExtra("bedrooms", 1) + " bedrooms");
             bathrooms.setText(intent.getStringExtra("bathrooms") + " bathrooms");
-            phoneNumber.setText("Landlord Phone Number" + intent.getStringExtra("phoneNumber"));
-            email.setText("Landlord Email" + intent.getStringExtra("email"));
-            leaseLength.setText(intent.getStringExtra("leaseLength"));
+            phoneNumber.setText("Landlord Phone Number: " + intent.getStringExtra("phoneNumber"));
+            email.setText("Landlord Email: " + intent.getStringExtra("email"));
+            leaseLength.setText("Length of Lease: " + intent.getStringExtra("leaseLength"));
         }
 
         Button locationButton = (Button) findViewById(R.id.locationButton);
